@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>$EQU Token</title>
-	<script src="script.js"></script>
     <style>
         * {
             margin: 0;
@@ -23,7 +22,7 @@
             background: #1E1E26;
             padding: 1rem;
             position: fixed;
-            width: auto;
+            width: 100%;
             top: 0;
             z-index: 1000;
         }
@@ -74,13 +73,13 @@
             margin: 1rem 0;
             justify-content: center;
             flex-wrap: wrap;
-        text-align: center;
         }
 
         .social-links a {
             flex: 1;
             min-width: 100px;
             text-align: center;
+            padding: 0.5rem;
         }
 
         .countdown {
@@ -286,18 +285,14 @@
     </footer>
 
     <script>
-        // Countdown Timer
         function updateCountdown() {
             const now = new Date().getTime();
-            const countDownDate = new Date(now + 1000000000).getTime();
-            
+            const countDownDate = new Date(now + 1000000000000000).getTime();
             const distance = countDownDate - now;
-            
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
             document.getElementById("days").innerHTML = String(days).padStart(2, '0');
             document.getElementById("hours").innerHTML = String(hours).padStart(2, '0');
             document.getElementById("minutes").innerHTML = String(minutes).padStart(2, '0');
@@ -307,7 +302,6 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
-        // Copy button functionality
         document.querySelector('.copy-button').addEventListener('click', function() {
             const text = "SkuziXP";
             navigator.clipboard.writeText(text).then(() => {
